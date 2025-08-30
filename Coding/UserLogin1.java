@@ -53,7 +53,7 @@ public class UserLogin1 extends JFrame {
         String password = String.valueOf(passwordField.getPassword());
 
         try (Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/playlist_db", "root", "$Jesus25")) {
+                "jdbc:mysql://localhost:3306/playlist_db", "root", "your-sql-password")) {
 
             String sql = "SELECT * FROM users WHERE username=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class UserLogin1 extends JFrame {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "Welcome, " + username + "!");
                 dispose();
-                new UserDashboardUI1(rs.getInt("id"), username); // Launch user dashboard
+                new UserDashboardUI1(rs.getInt("id"), username);
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid credentials!");
             }
@@ -73,4 +73,5 @@ public class UserLogin1 extends JFrame {
             ex.printStackTrace();
         }
     }
+
 }
