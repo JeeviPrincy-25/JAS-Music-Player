@@ -264,18 +264,17 @@ public class MusicManagerUI extends JFrame {
     private Connection connect() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/playlist_db";
         String user = "root";
-        String pass = "$Jesus25";
+        String pass = "your-sql-password";
         return DriverManager.getConnection(url, user, pass);
     }
         private void closeWindow() {
-            // Close current window
             this.dispose();
-            // Open main dashboard (assuming MainDashboard class exists)
-            new MainDashboard(); // Ensure MainDashboard is properly defined and implemented
+            new MainDashboard(); 
         }
 
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MusicManagerUI::new);
     }
+
 }
