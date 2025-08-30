@@ -81,7 +81,7 @@ public class UserReg1 extends JFrame {
         backBtn.setBounds(220, 230, 150, 30);
         backBtn.addActionListener(e -> {
             dispose();
-            new UserLogin1(); // Assuming you have this class
+            new UserLogin1(); 
         });
         add(backBtn);
 
@@ -154,10 +154,11 @@ public class UserReg1 extends JFrame {
     }
 
     private Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/playlist_db", "root", "$Jesus25");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/playlist_db", "root", "your-sql-password");
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(UserRegistration::new);
     }
+
 }
