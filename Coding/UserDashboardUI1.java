@@ -20,26 +20,23 @@ public class UserDashboardUI1 extends JFrame {
     public UserDashboardUI1(int userId, String username) {
         this.userId = userId;
         this.username = username;
-        new JFXPanel(); // Initialize JavaFX runtime
+        new JFXPanel(); 
 
         setTitle("User Dashboard - " + username);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Top panel with welcome, playlist, and exit
         JPanel topPanel = new JPanel();
         JLabel welcomeLabel = new JLabel("Welcome, " + username);
         JButton playlistBtn = new JButton("Playlist");
         JButton exitBtn = new JButton("Exit");
 
-        // Playlist button action
         playlistBtn.addActionListener(e -> showPlaylist());
 
-        // Exit button action
         exitBtn.addActionListener(e -> {
-            dispose(); // close current window
-            new MainDashboard(); // go back to main dashboard
+            dispose(); 
+            new MainDashboard(); 
         });
 
         topPanel.add(welcomeLabel);
@@ -56,7 +53,7 @@ public class UserDashboardUI1 extends JFrame {
     }
     private void showPlaylist() {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/playlist_db", "root", "$Jesus25");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/playlist_db", "root", "your-sql-password");
 
             String query = "SELECT s.song_id, s.title, s.artist, s.album_art_path, s.file_path " +
                            "FROM songs s JOIN user_favorites uf ON s.song_id = uf.song_id " +
@@ -283,4 +280,5 @@ public class UserDashboardUI1 extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new UserLogin1());
     }
+
 }
