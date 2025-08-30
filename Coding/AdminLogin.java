@@ -53,7 +53,7 @@ public class AdminLogin extends JFrame {
         String password = String.valueOf(passwordField.getPassword());
 
         try (Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/playlist_db", "root", "$Jesus25")) {
+                "jdbc:mysql://localhost:3306/playlist_db", "root", "your-sql-password")) {
 
             String sql = "SELECT * FROM admin_users WHERE username=? AND password=?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -73,4 +73,5 @@ public class AdminLogin extends JFrame {
             ex.printStackTrace();
         }
     }
+
 }
