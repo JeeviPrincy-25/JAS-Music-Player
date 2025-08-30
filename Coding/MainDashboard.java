@@ -14,7 +14,7 @@ public class MainDashboard extends JFrame {
         setResizable(false);
 
         // Load and scale background image
-        ImageIcon rawIcon = new ImageIcon("music_bg.jpg"); // Place your background image here
+        ImageIcon rawIcon = new ImageIcon("music_bg.jpg"); 
         Image bgImage = rawIcon.getImage().getScaledInstance(1000, 650, Image.SCALE_SMOOTH);
         JLabel background = new JLabel(new ImageIcon(bgImage));
         background.setLayout(null);
@@ -53,11 +53,11 @@ public class MainDashboard extends JFrame {
         // Exit Action
         exitBtn.addActionListener(e -> System.exit(0));
 
-        // TODO: Add action listeners for adminBtn, regBtn, loginBtn
         setVisible(true);
     }
 
     public static void main(String[] args) {
         new MainDashboard();
     }
+
 }
